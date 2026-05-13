@@ -105,10 +105,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* CONTAINER WITH EXTRA PADDING FOR BETTER READABILITY */
     .container {
-      max-width: 1280px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 3rem;  /* increased horizontal padding */
+      padding: 0 6%;  /* more breathing room on sides */
+    }
+
+    /* All text blocks have max-width to prevent long lines */
+    p, .hero-text p, .about-text p, .demo-contact-card p, .welcome-text {
+      max-width: 85ch;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     section {
@@ -143,17 +151,6 @@
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(44,125,160,0.2) 0%, rgba(0,0,0,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
     .hero-content {
       display: flex;
       flex-wrap: wrap;
@@ -176,10 +173,10 @@
     .hero-logo {
       flex: 1;
       text-align: center;
-      /* Removed background/backdrop filter box */
+      /* No background box, removed */
     }
     .hero-logo img {
-      max-width: 240px;  /* larger logo */
+      max-width: 260px;  /* larger logo */
       border-radius: 1rem;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
       transition: transform 0.3s;
@@ -324,7 +321,7 @@
 
     /* Demo page - only contact card */
     .demo-contact-card {
-      max-width: 650px;
+      max-width: 700px;
       margin: 2rem auto 0;
       background: white;
       border-radius: 1.8rem;
@@ -391,13 +388,13 @@
         margin: 0 auto;
       }
       .container {
-        padding: 0 1.5rem;
+        padding: 0 5%;
       }
     }
 
     @media (max-width: 550px) {
       .container {
-        padding: 0 1.2rem;
+        padding: 0 4%;
       }
       .section-title {
         font-size: 1.9rem;
@@ -434,7 +431,7 @@
       <div class="container hero-content">
         <div class="hero-text">
           <h2>Visionary Sounds</h2>
-          <!-- Removed "Founded by..." sentence -->
+          <!-- "Founded by..." sentence removed as requested -->
           <p style="max-width: 550px; margin-bottom: 2rem;">Cutting‑edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
@@ -449,10 +446,10 @@
     <div class="container">
       <section>
         <h2 class="section-title">Welcome</h2>
-        <p style="font-size: 1.2rem; max-width: 750px; color: #2c3e4e;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
+        <p class="welcome-text" style="font-size: 1.2rem; color: #2c3e4e;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
       </section>
 
-      <!-- LATEST MUSIC SECTION ADDED ON HOME PAGE -->
+      <!-- LATEST MUSIC SECTION - clearly visible on home page -->
       <section>
         <h2 class="section-title">Latest Releases</h2>
         <div class="music-grid">
@@ -544,7 +541,7 @@
     </div>
   </div>
 
-  <!-- DEMO PAGE (only contact, no form) -->
+  <!-- DEMO PAGE (only contact, no form, guidelines changed) -->
   <div id="demo-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
