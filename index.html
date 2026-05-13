@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Visionary Sounds | House Music Label</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -14,20 +14,21 @@
     }
 
     body {
-      background: #f8fafc;
+      background: #f4f6fc;
       color: #0a0c12;
       font-family: 'Inter', sans-serif;
       line-height: 1.5;
+      scroll-behavior: smooth;
     }
 
     /* Header & Navigation */
     .site-header {
       background: #ffffff;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
       position: sticky;
       top: 0;
-      z-index: 100;
-      border-bottom: 1px solid #e2e8f0;
+      z-index: 1000;
+      backdrop-filter: blur(0px);
     }
 
     .header-inner {
@@ -42,55 +43,67 @@
 
     .logo h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #1e2a3a, #2c3e50);
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0f2b3d, #1e4a6b);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      letter-spacing: -0.5px;
     }
-
     .logo span {
-      font-size: 0.8rem;
-      color: #4a5568;
+      font-size: 0.75rem;
+      color: #4a627a;
       display: block;
+      letter-spacing: 1px;
     }
 
+    /* Desktop nav */
     .nav-links {
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
     }
-
     .nav-links a {
       text-decoration: none;
-      font-weight: 500;
-      color: #1e293b;
+      font-weight: 600;
+      color: #1e2f3e;
       transition: 0.2s;
       font-size: 0.95rem;
       cursor: pointer;
+      padding: 0.5rem 0;
     }
-
     .nav-links a:hover,
     .nav-links a.active {
-      color: #2563eb;
-      border-bottom: 2px solid #2563eb;
-      padding-bottom: 4px;
+      color: #2c7da0;
+      border-bottom: 3px solid #2c7da0;
+    }
+
+    /* Mobile menu button (3 lines) */
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: #1e2f3e;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .mobile-menu-btn:hover {
+      color: #2c7da0;
     }
 
     /* Main content & sections */
     .page {
       display: none;
-      animation: fadeIn 0.3s ease;
+      animation: fadeUp 0.4s ease-out;
     }
-
     .page.active-page {
       display: block;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px);}
-      to { opacity: 1; transform: translateY(0);}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
@@ -105,140 +118,161 @@
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 600;
+      font-size: 2.4rem;
+      font-weight: 700;
       margin-bottom: 2rem;
       position: relative;
       display: inline-block;
+      color: #0f2b3d;
     }
-
     .section-title:after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -12px;
       left: 0;
-      width: 60px;
-      height: 3px;
-      background: #2563eb;
+      width: 70px;
+      height: 4px;
+      background: #2c7da0;
+      border-radius: 4px;
     }
 
-    /* Hero (Home) with logo */
+    /* Hero section (Home) */
     .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      background: linear-gradient(125deg, #0a1c2a 0%, #1b4a6e 100%);
       color: white;
-      padding: 5rem 0;
-      border-radius: 0 0 2rem 2rem;
+      padding: 4rem 0;
       position: relative;
+      overflow: hidden;
     }
-
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(44,125,160,0.2) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
     .hero-content {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
+      position: relative;
+      z-index: 2;
     }
-
     .hero-text {
       flex: 2;
     }
-
     .hero-text h2 {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 3.2rem;
+      font-weight: 800;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -1px;
     }
-
+    .hero-text .founder {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
     .hero-logo {
       flex: 1;
       text-align: center;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      border-radius: 2rem;
+      padding: 1rem;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
     }
-
     .hero-logo img {
       max-width: 180px;
-      border-radius: 1rem;
-      background: rgba(255,255,255,0.1);
-      padding: 0.5rem;
+      border-radius: 1.2rem;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
+      transition: transform 0.3s;
+    }
+    .hero-logo img:hover {
+      transform: scale(1.02);
     }
 
+    /* Buttons */
     .btn-primary {
-      background: #2563eb;
+      background: #2c7da0;
       border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
       color: white;
       display: inline-flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
       cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 5px 12px rgba(44,125,160,0.3);
     }
-
     .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
+      background: #1f5e7a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(44,125,160,0.4);
     }
-
     .btn-outline {
       background: transparent;
-      border: 1px solid #94a3b8;
-      padding: 0.7rem 1.8rem;
-      border-radius: 40px;
-      font-weight: 500;
+      border: 1.5px solid #2c7da0;
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
       text-decoration: none;
-      color: #1e293b;
+      color: #1e2f3e;
       transition: 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
     }
-
     .btn-outline:hover {
-      border-color: #2563eb;
-      background: #eff6ff;
+      background: #2c7da0;
+      color: white;
+      border-color: #2c7da0;
     }
 
-    /* Artist grid */
+    /* Artist & Music grids */
     .artist-grid, .music-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-
     .artist-card, .music-card {
-      background: #ffffff;
-      border-radius: 1rem;
-      padding: 1.5rem;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-      border: 1px solid #eef2f6;
-      transition: all 0.2s;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e9eef3;
+      transition: all 0.25s ease;
     }
-
     .artist-card:hover, .music-card:hover {
-      border-color: #cbd5e1;
-      transform: translateY(-4px);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+      border-color: #cbdde9;
     }
-
     .artist-card i, .music-card .music-icon {
-      font-size: 2.5rem;
-      color: #2563eb;
+      font-size: 2.8rem;
+      color: #2c7da0;
       margin-bottom: 1rem;
     }
-
-    .music-card .music-info {
-      text-align: left;
-      margin-top: 0.5rem;
-    }
-
     .play-icon {
       cursor: pointer;
-      color: #2563eb;
-      margin-left: 10px;
+      color: #2c7da0;
+      transition: 0.2s;
+    }
+    .play-icon:hover {
+      transform: scale(1.1);
+      color: #1f5e7a;
     }
 
     /* Podcast list */
@@ -248,16 +282,21 @@
       gap: 1.2rem;
       margin-top: 2rem;
     }
-
     .podcast-item {
       background: white;
-      border-radius: 1rem;
+      border-radius: 1.2rem;
       padding: 1.2rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      border: 1px solid #eef2f6;
+      border: 1px solid #e2eaf1;
+      transition: 0.2s;
+    }
+    .podcast-item:hover {
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transform: translateX(5px);
     }
 
     /* About page with founder image */
@@ -272,63 +311,104 @@
     }
     .about-text p {
       margin-bottom: 1.2rem;
-      color: #334155;
+      color: #2c3e4e;
+      font-size: 1.05rem;
     }
     .founder-card {
       flex: 1;
-      background: #ffffff;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
       text-align: center;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e2eaf1;
     }
     .founder-card img {
       width: 100%;
-      max-width: 200px;
+      max-width: 180px;
       border-radius: 50%;
       margin-bottom: 1rem;
-      border: 3px solid #2563eb;
+      border: 4px solid #2c7da0;
+      object-fit: cover;
     }
 
-    /* Demo row (only contact, no form) */
-    .demo-contact-only {
-      background: #ffffff;
-      border-radius: 1.2rem;
+    /* Demo page - only contact card */
+    .demo-contact-card {
+      max-width: 650px;
+      margin: 2rem auto 0;
+      background: white;
+      border-radius: 1.8rem;
       padding: 2rem;
-      border: 1px solid #e2e8f0;
-      max-width: 600px;
-      margin: 0 auto;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.08);
+      border: 1px solid #e2eaf1;
     }
     .contact-item {
       display: flex;
       align-items: center;
       gap: 1rem;
       margin-bottom: 1.5rem;
-      padding: 0.8rem;
-      background: #f8fafc;
+      padding: 1rem;
+      background: #f8fafd;
       border-radius: 1rem;
+      transition: 0.2s;
+    }
+    .contact-item:hover {
+      background: #eef3fc;
     }
 
+    /* Footer */
     footer {
-      background: #0f172a;
-      color: #cbd5e6;
+      background: #0a1c2a;
+      color: #bdd4e2;
       text-align: center;
       padding: 2rem;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
     footer a {
-      color: #93c5fd;
+      color: #7ab3c8;
       text-decoration: none;
+      font-weight: 500;
     }
     footer a:hover {
       text-decoration: underline;
     }
 
-    @media (max-width: 768px) {
-      .header-inner { flex-direction: column; gap: 1rem; text-align: center; }
-      .hero-content { flex-direction: column; text-align: center; }
-      .hero-text h2 { font-size: 2rem; }
-      .section-title { font-size: 1.8rem; }
+    /* Responsive */
+    @media (max-width: 800px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0 0.5rem;
+        text-align: center;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hero-text h2 {
+        font-size: 2.4rem;
+      }
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-logo {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
     }
   </style>
 </head>
@@ -340,7 +420,10 @@
       <h1>Visionary Sounds</h1>
       <span>House Music Record Label</span>
     </div>
-    <nav class="nav-links">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="nav-links" id="navLinks">
       <a data-page="home" class="nav-link active">Home</a>
       <a data-page="about" class="nav-link">About</a>
       <a data-page="artists" class="nav-link">Artists</a>
@@ -358,8 +441,8 @@
       <div class="container hero-content">
         <div class="hero-text">
           <h2>Visionary Sounds</h2>
-          <p class="founder" style="margin: 0.5rem 0;">Founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko)</p>
-          <p style="max-width: 600px; margin: 1rem 0 2rem;">Cutting-edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
+          <p class="founder">Founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko)</p>
+          <p style="max-width: 550px; margin-bottom: 2rem;">Cutting‑edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
             <a class="btn-outline" data-page="music"><i class="fas fa-play-circle"></i> Latest Music</a>
@@ -373,7 +456,7 @@
     <div class="container">
       <section>
         <h2 class="section-title">Welcome</h2>
-        <p style="font-size: 1.1rem; max-width: 800px;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
+        <p style="font-size: 1.2rem; max-width: 750px; color: #2c3e4e;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
       </section>
     </div>
   </div>
@@ -393,9 +476,9 @@
           <img src="2.png" alt="Tremor Rsa - Founder">
           <h3>Tremor Rsa</h3>
           <p><strong>Maninjwa Ntsikayomzi Ngqibeko</strong></p>
-          <p style="font-size: 0.9rem; margin-top: 0.5rem;">Founder, Producer, Curator</p>
+          <p style="margin-top: 0.5rem;">Founder, Producer, Curator</p>
           <hr style="margin: 1rem 0;">
-          <p style="font-size: 0.85rem;">"House music is not just a genre — it's a spiritual frequency. Visionary Sounds exists to elevate that frequency."</p>
+          <p style="font-style: italic;">"House music is not just a genre — it's a spiritual frequency. Visionary Sounds exists to elevate that frequency."</p>
         </div>
       </div>
     </div>
@@ -405,7 +488,7 @@
   <div id="artists-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Artists & Collaborators</h2>
-      <p style="margin-bottom: 1rem;">Visionary Sounds is proud to work with these exceptional house music talents.</p>
+      <p style="margin-bottom: 1rem; color: #2c3e4e;">Visionary Sounds is proud to work with these exceptional house music talents.</p>
       <div class="artist-grid">
         <div class="artist-card"><i class="fas fa-user-astronaut"></i><h4>Tremor Rsa</h4><p>Founder / Producer</p><small>Maninjwa Ntsikayomzi Ngqibeko</small></div>
         <div class="artist-card"><i class="fas fa-head-side-vr"></i><h4>Luna Deep</h4><p>Resident Producer</p><small>Melodic Architect</small></div>
@@ -422,15 +505,15 @@
       <div class="music-grid">
         <div class="music-card">
           <div class="music-icon"><i class="fas fa-cloud-moon"></i></div>
-          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Midnight Mirage</h3><i class="fas fa-play play-icon" onclick="alert('▶️ Preview: Midnight Mirage — out now on all platforms')"></i></div><p style="color:#475569;">Tremor Rsa</p><small>House · 6:42</small></div>
+          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Midnight Mirage</h3><i class="fas fa-play play-icon" onclick="alert('▶️ Preview: Midnight Mirage — out now on all platforms')"></i></div><p style="color:#4a6a7f;">Tremor Rsa</p><small>House · 6:42</small></div>
         </div>
         <div class="music-card">
           <div class="music-icon"><i class="fas fa-water"></i></div>
-          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Silent Whispers</h3><i class="fas fa-play play-icon" onclick="alert('🎧 Listen to Silent Whispers · Luna Deep & SoulSpectrum')"></i></div><p style="color:#475569;">Luna Deep, SoulSpectrum</p><small>Melodic House · 5:58</small></div>
+          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Silent Whispers</h3><i class="fas fa-play play-icon" onclick="alert('🎧 Listen to Silent Whispers · Luna Deep & SoulSpectrum')"></i></div><p style="color:#4a6a7f;">Luna Deep, SoulSpectrum</p><small>Melodic House · 5:58</small></div>
         </div>
         <div class="music-card">
           <div class="music-icon"><i class="fas fa-sun"></i></div>
-          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Echoes of Orion</h3><i class="fas fa-play play-icon" onclick="alert('🌌 Echoes of Orion — Coming May 2025')"></i></div><p style="color:#475569;">Visionary Collective</p><small>Progressive House</small></div>
+          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Echoes of Orion</h3><i class="fas fa-play play-icon" onclick="alert('🌌 Echoes of Orion — Coming May 2025')"></i></div><p style="color:#4a6a7f;">Visionary Collective</p><small>Progressive House</small></div>
         </div>
       </div>
     </div>
@@ -442,9 +525,9 @@
       <h2 class="section-title">Visionary Podcast</h2>
       <p>Monthly house music journeys, guest mixes and label showcases.</p>
       <div class="podcast-list">
-        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2563eb;"></i> VP#009: Soul of the Underground</h3><p>Tremor Rsa & Luna Deep · Hypnotic session</p><small>Apr 10, 2025</small></div><button class="btn-outline" onclick="alert('🎙️ Episode streaming soon on Mixcloud')">Listen →</button></div>
-        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2563eb;"></i> VP#008: Midnight Rituals (Founder's Cut)</h3><p>Curated by Maninjwa Ntsikayomzi Ngqibeko</p><small>Mar 2, 2025</small></div><button class="btn-outline" onclick="alert('🔊 Available on SoundCloud')">Stream →</button></div>
-        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2563eb;"></i> VP#007: House Horizons</h3><p>Unreleased demos & upcoming signings</p><small>Feb 2025</small></div><button class="btn-outline" onclick="alert('🎧 Preview exclusive')">Preview →</button></div>
+        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2c7da0;"></i> VP#009: Soul of the Underground</h3><p>Tremor Rsa & Luna Deep · Hypnotic session</p><small>Apr 10, 2025</small></div><button class="btn-outline" onclick="alert('🎙️ Episode streaming soon on Mixcloud')">Listen →</button></div>
+        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2c7da0;"></i> VP#008: Midnight Rituals (Founder's Cut)</h3><p>Curated by Maninjwa Ntsikayomzi Ngqibeko</p><small>Mar 2, 2025</small></div><button class="btn-outline" onclick="alert('🔊 Available on SoundCloud')">Stream →</button></div>
+        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2c7da0;"></i> VP#007: House Horizons</h3><p>Unreleased demos & upcoming signings</p><small>Feb 2025</small></div><button class="btn-outline" onclick="alert('🎧 Preview exclusive')">Preview →</button></div>
       </div>
     </div>
   </div>
@@ -454,19 +537,19 @@
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
       <p>We are always searching for fresh house music, melodic house and Afro house. Send your tracks directly to our A&R team.</p>
-      <div class="demo-contact-only">
+      <div class="demo-contact-card">
         <h3><i class="fas fa-phone-alt"></i> Direct Contact</h3>
         <div class="contact-item">
           <i class="fas fa-mobile-alt fa-lg"></i>
-          <div><strong>WhatsApp / Call</strong><br><a href="tel:+27655915185" style="text-decoration: none; color: #1e293b;">065 591 5185</a></div>
-          <button onclick="navigator.clipboard.writeText('0655915185'); alert('Number copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer;"><i class="fas fa-copy"></i></button>
+          <div><strong>WhatsApp / Call</strong><br><a href="tel:+27655915185" style="text-decoration: none; color: #1e2f3e;">065 591 5185</a></div>
+          <button onclick="navigator.clipboard.writeText('0655915185'); alert('Number copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer; color: #2c7da0;"><i class="fas fa-copy"></i></button>
         </div>
         <div class="contact-item">
           <i class="fas fa-envelope fa-lg"></i>
-          <div><strong>Email</strong><br><a href="mailto:ngqibekom@gmail.com" style="text-decoration: none; color: #1e293b;">ngqibekom@gmail.com</a></div>
-          <button onclick="navigator.clipboard.writeText('ngqibekom@gmail.com'); alert('Email copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer;"><i class="fas fa-copy"></i></button>
+          <div><strong>Email</strong><br><a href="mailto:ngqibekom@gmail.com" style="text-decoration: none; color: #1e2f3e;">ngqibekom@gmail.com</a></div>
+          <button onclick="navigator.clipboard.writeText('ngqibekom@gmail.com'); alert('Email copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer; color: #2c7da0;"><i class="fas fa-copy"></i></button>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.85rem; background: #f1f5f9; padding: 0.8rem; border-radius: 0.8rem;"><i class="fas fa-info-circle"></i> Guidelines: send private SoundCloud / Dropbox links, include artist name, track title, bio. Only original house music.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; background: #eef3fc; padding: 1rem; border-radius: 1rem;"><i class="fas fa-info-circle"></i> Guidelines: send private SoundCloud / Dropbox links, include artist name, track title, bio. Only original house music.</p>
       </div>
     </div>
   </div>
@@ -478,6 +561,13 @@
 </footer>
 
 <script>
+  // Mobile menu toggle (3 lines)
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navLinksContainer = document.getElementById('navLinks');
+  mobileBtn.addEventListener('click', () => {
+    navLinksContainer.classList.toggle('show');
+  });
+
   // Page switching logic
   const pages = {
     home: document.getElementById('home-page'),
@@ -487,8 +577,7 @@
     podcast: document.getElementById('podcast-page'),
     demo: document.getElementById('demo-page')
   };
-
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinksAll = document.querySelectorAll('.nav-link');
   const btns = document.querySelectorAll('[data-page]');
 
   function showPage(pageId) {
@@ -496,23 +585,26 @@
       page.classList.remove('active-page');
     });
     pages[pageId].classList.add('active-page');
-    navLinks.forEach(link => {
+    navLinksAll.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('data-page') === pageId) {
         link.classList.add('active');
       }
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Close mobile menu after click
+    if (navLinksContainer.classList.contains('show')) {
+      navLinksContainer.classList.remove('show');
+    }
   }
 
-  navLinks.forEach(link => {
+  navLinksAll.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const pageId = link.getAttribute('data-page');
       if (pageId && pages[pageId]) showPage(pageId);
     });
   });
-
   btns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -521,7 +613,7 @@
     });
   });
 
-  // Ensure home is active by default (already active)
+  // Ensure home active at start (already)
 </script>
 </body>
 </html>
