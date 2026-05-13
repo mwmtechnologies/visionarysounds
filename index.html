@@ -105,15 +105,15 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* CONTAINER WITH EXTRA PADDING FOR BETTER READABILITY */
+    /* CONTAINER WITH SIGNIFICANT PADDING ON ALL SIDES - FIXES POINT 1 */
     .container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 6%;  /* more breathing room on sides */
+      padding: 0 8%;  /* generous padding to avoid text touching edges */
     }
 
-    /* All text blocks have max-width to prevent long lines */
-    p, .hero-text p, .about-text p, .demo-contact-card p, .welcome-text {
+    /* All text blocks have max-width for comfortable reading */
+    p, .hero-text p, .about-text p, .demo-contact-card p, .welcome-text, .podcast-item p, .music-info p {
       max-width: 85ch;
       margin-left: auto;
       margin-right: auto;
@@ -173,10 +173,9 @@
     .hero-logo {
       flex: 1;
       text-align: center;
-      /* No background box, removed */
     }
     .hero-logo img {
-      max-width: 260px;  /* larger logo */
+      max-width: 260px;
       border-radius: 1rem;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
       transition: transform 0.3s;
@@ -319,9 +318,9 @@
       object-fit: cover;
     }
 
-    /* Demo page - only contact card */
+    /* Demo page - only contact card, with extra padding */
     .demo-contact-card {
-      max-width: 700px;
+      max-width: 750px;
       margin: 2rem auto 0;
       background: white;
       border-radius: 1.8rem;
@@ -388,13 +387,13 @@
         margin: 0 auto;
       }
       .container {
-        padding: 0 5%;
+        padding: 0 6%;
       }
     }
 
     @media (max-width: 550px) {
       .container {
-        padding: 0 4%;
+        padding: 0 5%;
       }
       .section-title {
         font-size: 1.9rem;
@@ -431,7 +430,7 @@
       <div class="container hero-content">
         <div class="hero-text">
           <h2>Visionary Sounds</h2>
-          <!-- "Founded by..." sentence removed as requested -->
+          <!-- "Founded by..." sentence removed -->
           <p style="max-width: 550px; margin-bottom: 2rem;">Cutting‑edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
@@ -449,7 +448,7 @@
         <p class="welcome-text" style="font-size: 1.2rem; color: #2c3e4e;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
       </section>
 
-      <!-- LATEST MUSIC SECTION - clearly visible on home page -->
+      <!-- LATEST MUSIC SECTION - clearly visible on home -->
       <section>
         <h2 class="section-title">Latest Releases</h2>
         <div class="music-grid">
@@ -541,7 +540,7 @@
     </div>
   </div>
 
-  <!-- DEMO PAGE (only contact, no form, guidelines changed) -->
+  <!-- DEMO PAGE (only contact, guidelines changed) -->
   <div id="demo-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
