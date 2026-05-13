@@ -1,1 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Visionary Sounds | Deep House Record Label</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background: #07090e;
+      color: #eef2ff;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #10131c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #7b2cbf;
+      border-radius: 10px;
+    }
+
+    /* glassmorphic backdrop + neon gradients */
+    .glass-card {
+      background: rgba(18, 22, 35, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(80, 70, 150, 0.3);
+      border-radius: 2rem;
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      border-color: #b77eff;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(183, 126, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* gradient texts */
+    .gradient-text {
+      background: linear-gradient(135deg, #c084fc, #60a5fa, #a78bfa);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+    }
+
+    /* buttons & links */
+    .btn-primary {
+      background: linear-gradient(95deg, #6c2bd9, #9146ff);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      color: white;
+      transition: 0.25s ease;
+      box-shadow: 0 8px 20px rgba(108, 43, 217, 0.4);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn-primary:hover {
+      transform: scale(1.02);
+      background: linear-gradient(95deg, #7d3ce8, #a25eff);
+      box-shadow: 0 12px 28px rgba(108, 43, 217, 0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #a35cff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      transition: 0.2s;
+      color: #ddc9ff;
+    }
+    .btn-outline:hover {
+      background: rgba(163, 92, 255, 0.15);
+      border-color: #c084fc;
+      color: white;
+    }
+
+    /* navigation */
+    .nav-links a {
+      color: #cdd9ff;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #c58aff;
+      border-bottom: 2px solid #a96eff;
+    }
+
+    /* hero background effect */
+    .hero-bg {
+      position: relative;
+      background: radial-gradient(circle at 20% 30%, rgba(40, 20, 70, 0.6), rgba(5, 5, 15, 0.95));
+    }
+
+    /* section spacing */
+    section {
+      padding: 90px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+      border-left: 5px solid #a76eff;
+      padding-left: 1.4rem;
+    }
+
+    /* artist grid */
+    .artist-grid, .music-grid, .podcast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .artist-card {
+      text-align: center;
+      background: rgba(12, 15, 27, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 2rem;
+      padding: 2rem 1rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(130, 80, 220, 0.2);
+    }
+    .artist-card i {
+      font-size: 3rem;
+      color: #b07cff;
+      margin-bottom: 1rem;
+    }
+    .artist-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .artist-card p {
+      font-size: 0.85rem;
+      color: #b9c3e6;
+    }
+
+    /* music cards */
+    .music-card {
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 1.8rem;
+      overflow: hidden;
+      transition: 0.25s;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .music-art {
+      height: 180px;
+      background: linear-gradient(145deg, #1f1730, #0f0b1a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #d6b3ff;
+    }
+    .music-info {
+      padding: 1.2rem;
+    }
+    .play-btn {
+      background: rgba(255,255,240,0.1);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      cursor: pointer;
+      color: #cdb5ff;
+    }
+    .play-btn:hover {
+      background: #9146ff;
+      color: white;
+      transform: scale(1.08);
+    }
+
+    /* podcast item */
+    .podcast-item {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: rgba(15, 18, 30, 0.7);
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.2s;
+      border-left: 4px solid #9146ff;
+    }
+    .podcast-meta i {
+      font-size: 1.8rem;
+      margin-right: 1rem;
+      color: #b87eff;
+    }
+
+    /* demo section dual style */
+    .demo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .demo-card {
+      flex: 1;
+      background: rgba(20, 22, 40, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid rgba(170, 120, 255, 0.3);
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #10131f;
+      padding: 0.8rem 1.2rem;
+      border-radius: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    footer {
+      background: #03050a;
+      padding: 2rem 5%;
+      text-align: center;
+      border-top: 1px solid #2a2342;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .section-title {
+        font-size: 2rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      section {
+        padding: 60px 5%;
+      }
+      .demo-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation -->
+  <header style="position: sticky; top: 0; z-index: 100; background: rgba(5, 7, 14, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(130, 90, 220, 0.3);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 1rem 5%; max-width: 1400px; margin: 0 auto;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <i class="fas fa-head-side-vr" style="font-size: 2rem; color: #bc8aff;"></i>
+        <span style="font-weight: 800; font-size: 1.8rem; font-family: 'Syne', sans-serif; letter-spacing: -1px;">VISIONARY<span style="color: #b77eff;"> SOUNDS</span></span>
+      </div>
+      <nav class="nav-links" style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <a href="#home" class="nav-link">HOME</a>
+        <a href="#artists" class="nav-link">ARTISTS</a>
+        <a href="#music" class="nav-link">MUSIC</a>
+        <a href="#podcast" class="nav-link">PODCAST</a>
+        <a href="#demo" class="nav-link">DEMO</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / HOME Section -->
+  <section id="home" class="hero-bg" style="padding-top: 60px;">
+    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 1000px;">
+      <span style="background: rgba(139, 92, 246, 0.2); padding: 0.3rem 1rem; border-radius: 40px; width: fit-content; font-size: 0.85rem; backdrop-filter: blur(4px);"><i class="fas fa-waveform"></i> DEEP HOUSE AUTHORITY</span>
+      <h1 style="font-size: clamp(2.8rem, 8vw, 5.2rem); font-weight: 800; line-height: 1.1; font-family: 'Syne', sans-serif;">
+        Visionary <span class="gradient-text">Sounds</span><br>
+        Where Soul Meets Frequency
+      </h1>
+      <p style="font-size: 1.2rem; max-width: 650px; color: #cbd5ff;">Founded by <strong class="gradient-text">Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko), we push the boundaries of deep house — hypnotic rhythms, emotive melodies, and underground authenticity.</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#demo" class="btn-primary"><i class="fas fa-headphones"></i> SUBMIT DEMO</a>
+        <a href="#music" class="btn-outline"><i class="fas fa-play-circle"></i> LATEST RELEASES</a>
+      </div>
+      <div style="margin-top: 1rem; display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 0.9rem; color: #b6c4ff;">
+        <span><i class="fas fa-map-marker-alt"></i> South Africa / Global</span>
+        <span><i class="fas fa-chart-line"></i> #DeepHouseCulture</span>
+      </div>
+    </div>
+    <!-- abstract deco -->
+    <div style="position: relative; margin-top: 40px; display: flex; gap: 16px; justify-content: flex-start; opacity: 0.6;">
+      <div style="width: 80px; height: 2px; background: linear-gradient(90deg, #a47aff, transparent);"></div>
+      <div style="width: 40px; height: 2px; background: #a47aff;"></div>
+    </div>
+  </section>
+
+  <!-- ARTISTS (worked with) -->
+  <section id="artists">
+    <div class="section-title">
+      <i class="fas fa-users" style="margin-right: 12px; color: #c084fc;"></i> Artists & Collaborators
+    </div>
+    <p style="margin-bottom: 2rem; max-width: 700px;">Visionary Sounds works with innovative producers & selectors that define deep house evolution.</p>
+    <div class="artist-grid">
+      <div class="artist-card glass-card">
+        <i class="fas fa-microphone-alt"></i>
+        <h4>Tremor Rsa</h4>
+        <p>Founder / Producer / DJ</p>
+        <small style="color: #bbaaee;">Maninjwa Ntsikayomzi Ngqibeko</small>
+      </div>
+      <div class="artist-card glass-card">
+        <i class="fas fa-synth"></i>
+        <h4>Luna Deep</h4>
+        <p>Resident Producer</p>
+        <small>Melodic Architect</small>
+      </div>
+      <div class="artist-card glass-card">
+        <i class="fas fa-drumstick-bite"></i>
+        <h4>SoulSpectrum</h4>
+        <p>Collaborator / Vocalist</p>
+        <small>Deep House Chronicles</small>
+      </div>
+      <div class="artist-card glass-card">
+        <i class="fas fa-head-side-headphones"></i>
+        <h4>Echo Motif</h4>
+        <p>Label Affiliate</p>
+        <small>Groove Scientist</small>
+      </div>
+    </div>
+    <div style="margin-top: 2rem; text-align: center; font-style: italic; opacity: 0.8;">+ rising talents from Johannesburg to Cape Town</div>
+  </section>
+
+  <!-- MUSIC Section -->
+  <section id="music">
+    <div class="section-title">
+      <i class="fas fa-music" style="margin-right: 12px; color: #c084fc;"></i> Latest Music
+    </div>
+    <div class="music-grid">
+      <div class="music-card">
+        <div class="music-art"><i class="fas fa-sun-plant-wilt fa-3x"></i></div>
+        <div class="music-info">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-weight: 700;">Midnight Mirage</h3>
+            <div class="play-btn" onclick="alert('▶️ Preview: Midnight Mirage — available on all platforms soon.')"><i class="fas fa-play"></i></div>
+          </div>
+          <p style="margin: 8px 0; color: #bbaef0;">Tremor Rsa</p>
+          <div style="display: flex; gap: 10px; font-size: 0.7rem;"><span><i class="far fa-clock"></i> 6:42</span> <span><i class="fas fa-waveform"></i> Deep House</span></div>
+        </div>
+      </div>
+      <div class="music-card">
+        <div class="music-art"><i class="fas fa-cloud-moon fa-3x"></i></div>
+        <div class="music-info">
+          <div style="display: flex; justify-content: space-between;">
+            <h3 style="font-weight: 700;">Silent Whispers</h3>
+            <div class="play-btn" onclick="alert('🎧 Listen to Silent Whispers — out now on Visionary Sounds.')"><i class="fas fa-play"></i></div>
+          </div>
+          <p style="margin: 8px 0; color: #bbaef0;">Luna Deep & SoulSpectrum</p>
+          <div style="display: flex; gap: 10px; font-size: 0.7rem;"><span><i class="far fa-clock"></i> 5:58</span> <span><i class="fas fa-head-side-headphones"></i> Melodic / Deep</span></div>
+        </div>
+      </div>
+      <div class="music-card">
+        <div class="music-art"><i class="fas fa-water fa-3x"></i></div>
+        <div class="music-info">
+          <div style="display: flex; justify-content: space-between;">
+            <h3 style="font-weight: 700;">Echoes of Orion</h3>
+            <div class="play-btn" onclick="alert('🌌 Echoes of Orion — streaming preview. Full release 2025')"><i class="fas fa-play"></i></div>
+          </div>
+          <p style="margin: 8px 0; color: #bbaef0;">Visionary Collective</p>
+          <div style="display: flex; gap: 10px; font-size: 0.7rem;"><span><i class="far fa-calendar-alt"></i> March 2025</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="#" class="btn-outline" onclick="alert('Full catalogue on Spotify / Apple Music coming soon'); return false;"><i class="fab fa-spotify"></i> DISCOGRAPHY</a>
+    </div>
+  </section>
+
+  <!-- PODCAST Section -->
+  <section id="podcast">
+    <div class="section-title">
+      <i class="fas fa-podcast" style="margin-right: 12px; color: #c084fc;"></i> Visionary Podcast
+    </div>
+    <p style="margin-bottom: 1.8rem;">Monthly deep house journeys, guest mixes, and label showcases.</p>
+    <div class="podcast-grid" style="display: flex; flex-direction: column; gap: 1.2rem;">
+      <div class="podcast-item">
+        <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
+          <i class="fas fa-circle-play fa-2x" style="color: #ac79ff;"></i>
+          <div>
+            <h3 style="font-weight: 700;">VP#009: Soul of the Underground</h3>
+            <p style="font-size: 0.8rem;">with Tremor Rsa & guest Luna Deep • Deep & hypnotic session</p>
+            <span style="font-size: 0.7rem; background: #2a234a; padding: 3px 8px; border-radius: 50px;"><i class="far fa-calendar"></i> April 10, 2025</span>
+          </div>
+        </div>
+        <div>
+          <button class="btn-outline" style="padding: 0.4rem 1rem;" onclick="alert('🎙️ Full podcast episode streaming soon. Stay tuned!')"><i class="fas fa-headphones"></i> Listen Now</button>
+        </div>
+      </div>
+      <div class="podcast-item">
+        <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
+          <i class="fas fa-circle-play fa-2x" style="color: #ac79ff;"></i>
+          <div>
+            <h3 style="font-weight: 700;">VP#008: Midnight Rituals (Founder's Cut)</h3>
+            <p style="font-size: 0.8rem;">Exclusive mix curated by Maninjwa Ntsikayomzi Ngqibeko (Tremor Rsa)</p>
+            <span style="font-size: 0.7rem; background: #2a234a; padding: 3px 8px; border-radius: 50px;"><i class="far fa-calendar"></i> March 2, 2025</span>
+          </div>
+        </div>
+        <div>
+          <button class="btn-outline" style="padding: 0.4rem 1rem;" onclick="alert('🔊 Episode 008 now available on Mixcloud / SoundCloud')"><i class="fas fa-download"></i> Stream</button>
+        </div>
+      </div>
+      <div class="podcast-item">
+        <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
+          <i class="fas fa-circle-play fa-2x" style="color: #ac79ff;"></i>
+          <div>
+            <h3 style="font-weight: 700;">VP#007: Deep House Horizons</h3>
+            <p style="font-size: 0.8rem;">Featuring unreleased demos & upcoming signings</p>
+            <span style="font-size: 0.7rem; background: #2a234a; padding: 3px 8px; border-radius: 50px;"><i class="far fa-calendar"></i> February 2025</span>
+          </div>
+        </div>
+        <div>
+          <button class="btn-outline" style="padding: 0.4rem 1rem;" onclick="alert('🎧 Episode replay — exclusive to Visionary Sounds subscribers')"><i class="fas fa-microphone-alt"></i> Preview</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO SUBMISSION Section -->
+  <section id="demo">
+    <div class="section-title">
+      <i class="fas fa-tape" style="margin-right: 12px; color: #c084fc;"></i> Demo Submissions
+    </div>
+    <p style="margin-bottom: 1rem;">Visionary Sounds is always searching for fresh deep house productions. Send your demos directly via call/whatsapp or email. Our A&R team reviews every submission.</p>
+    <div class="demo-container">
+      <!-- Left: Contact info -->
+      <div class="demo-card">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;"><i class="fas fa-envelope-open-text"></i> Submit your track</h3>
+        <div class="contact-detail">
+          <i class="fas fa-phone-alt fa-lg" style="color: #b77eff;"></i>
+          <div>
+            <strong>Phone / WhatsApp</strong><br>
+            <a href="tel:+27655915185" style="color: #d9c4ff; text-decoration: none;">+27 65 591 5185</a>
+          </div>
+          <button style="margin-left: auto; background: none; border: none; color: #c796ff; cursor: pointer;" onclick="navigator.clipboard.writeText('0655915185'); alert('📞 Phone number copied!')"><i class="fas fa-copy"></i></button>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-envelope fa-lg" style="color: #b77eff;"></i>
+          <div>
+            <strong>Email (preferred)</strong><br>
+            <a href="mailto:ngqibekom@gmail.com" style="color: #d9c4ff; text-decoration: none;">ngqibekom@gmail.com</a>
+          </div>
+          <button style="margin-left: auto; background: none; border: none; color: #c796ff; cursor: pointer;" onclick="navigator.clipboard.writeText('ngqibekom@gmail.com'); alert('✉️ Email copied!')"><i class="fas fa-copy"></i></button>
+        </div>
+        <div style="margin-top: 1.5rem; background: #0d0f1a; border-radius: 1.5rem; padding: 1rem;">
+          <i class="fas fa-info-circle"></i> Submission guidelines:<br>
+          • Send private SoundCloud / Dropbox links (stream only).<br>
+          • Only original Deep House, Melodic House, Afro Deep.<br>
+          • Include artist name, track title, and short bio.
+        </div>
+      </div>
+      <!-- Right: quick contact form (simulated) + additional info -->
+      <div class="demo-card">
+        <h3><i class="fas fa-head-side-headphones"></i> Rapid Demo Contact</h3>
+        <p style="margin: 0.5rem 0 1rem;">Prefer to send a message directly? We’ll respond within 5-7 days.</p>
+        <form id="demoForm" style="display: flex; flex-direction: column; gap: 1rem;">
+          <input type="text" placeholder="Artist / Project Name" style="background: #161b2b; border: 1px solid #363355; padding: 0.8rem 1rem; border-radius: 2rem; color: white;" required id="artistName">
+          <input type="email" placeholder="Your Email Address" style="background: #161b2b; border: 1px solid #363355; padding: 0.8rem 1rem; border-radius: 2rem; color: white;" required id="demoEmail">
+          <textarea rows="3" placeholder="Tell us about your sound, links (SoundCloud / private streaming)" style="background: #161b2b; border: 1px solid #363355; padding: 0.8rem 1rem; border-radius: 1.5rem; color: white; resize: vertical;"></textarea>
+          <button type="submit" class="btn-primary" style="justify-content: center; width: 100%;"><i class="fas fa-paper-plane"></i> Send Demo Request</button>
+        </form>
+        <p style="font-size: 0.7rem; margin-top: 1rem; text-align: center;"><i class="fas fa-shield-alt"></i> All demos are treated with confidentiality. For urgent submissions, call <strong>0655915185</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+      <a href="#" style="color: #bba9ff; font-size: 1.4rem;"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="color: #bba9ff; font-size: 1.4rem;"><i class="fab fa-soundcloud"></i></a>
+      <a href="#" style="color: #bba9ff; font-size: 1.4rem;"><i class="fab fa-spotify"></i></a>
+      <a href="#" style="color: #bba9ff; font-size: 1.4rem;"><i class="fab fa-mixcloud"></i></a>
+    </div>
+    <p style="font-size: 0.85rem;">© 2025 Visionary Sounds Recordings — Founded by Tremor Rsa (Maninjwa Ntsikayomzi Ngqibeko) <br> All deep house frequencies reserved. Johannesburg | Cape Town | Global</p>
+    <div style="margin-top: 1rem; font-size: 0.75rem;">
+      <a href="#home" style="color: #9f87e2; text-decoration: none;">Back to top <i class="fas fa-angle-double-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- Active link highlight on scroll & smooth, plus simple form handling -->
+  <script>
+    // highlight current section in navbar
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    function updateActiveLink() {
+      let current = '';
+      const scrollPos = window.scrollY + 150;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href').substring(1);
+        if (href === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('load', updateActiveLink);
+    
+    // smooth scroll for anchor links
+    document.querySelectorAll('.nav-link, a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== "#" && targetId !== "" && targetId.startsWith("#")) {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, null, targetId);
+          }
+        }
+      });
+    });
+
+    // Demo form submission (simulate friendly alert + reset)
+    const form = document.getElementById('demoForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const artist = document.getElementById('artistName').value.trim();
+        const email = document.getElementById('demoEmail').value.trim();
+        if (artist === '' || email === '') {
+          alert('Please fill in your artist name and email address.');
+          return;
+        }
+        alert(`🎧 Thank you ${artist}! Your demo request has been received. Our A&R will reach out to ${email} or via whatsapp. For fast-track, also send tracks directly to ngqibekom@gmail.com`);
+        form.reset();
+      });
+    }
+
+    // small visual effect on music buttons (already inline)
+  </script>
+</body>
+</html>
