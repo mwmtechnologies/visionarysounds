@@ -28,7 +28,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(0px);
     }
 
     .header-inner {
@@ -109,7 +108,7 @@
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 3rem;  /* increased horizontal padding */
     }
 
     section {
@@ -174,23 +173,14 @@
       margin-bottom: 0.75rem;
       letter-spacing: -1px;
     }
-    .hero-text .founder {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-bottom: 1.2rem;
-    }
     .hero-logo {
       flex: 1;
       text-align: center;
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(4px);
-      border-radius: 2rem;
-      padding: 1rem;
-      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+      /* Removed background/backdrop filter box */
     }
     .hero-logo img {
-      max-width: 180px;
-      border-radius: 1.2rem;
+      max-width: 240px;  /* larger logo */
+      border-radius: 1rem;
       filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
       transition: transform 0.3s;
     }
@@ -400,6 +390,9 @@
         width: 80%;
         margin: 0 auto;
       }
+      .container {
+        padding: 0 1.5rem;
+      }
     }
 
     @media (max-width: 550px) {
@@ -441,7 +434,7 @@
       <div class="container hero-content">
         <div class="hero-text">
           <h2>Visionary Sounds</h2>
-          <p class="founder">Founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko)</p>
+          <!-- Removed "Founded by..." sentence -->
           <p style="max-width: 550px; margin-bottom: 2rem;">Cutting‑edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
@@ -458,6 +451,25 @@
         <h2 class="section-title">Welcome</h2>
         <p style="font-size: 1.2rem; max-width: 750px; color: #2c3e4e;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
       </section>
+
+      <!-- LATEST MUSIC SECTION ADDED ON HOME PAGE -->
+      <section>
+        <h2 class="section-title">Latest Releases</h2>
+        <div class="music-grid">
+          <div class="music-card">
+            <div class="music-icon"><i class="fas fa-cloud-moon"></i></div>
+            <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Midnight Mirage</h3><i class="fas fa-play play-icon" onclick="alert('▶️ Preview: Midnight Mirage — out now on all platforms')"></i></div><p style="color:#4a6a7f;">Tremor Rsa</p><small>House · 6:42</small></div>
+          </div>
+          <div class="music-card">
+            <div class="music-icon"><i class="fas fa-water"></i></div>
+            <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Silent Whispers</h3><i class="fas fa-play play-icon" onclick="alert('🎧 Listen to Silent Whispers · Luna Deep & SoulSpectrum')"></i></div><p style="color:#4a6a7f;">Luna Deep, SoulSpectrum</p><small>Melodic House · 5:58</small></div>
+          </div>
+          <div class="music-card">
+            <div class="music-icon"><i class="fas fa-sun"></i></div>
+            <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Echoes of Orion</h3><i class="fas fa-play play-icon" onclick="alert('🌌 Echoes of Orion — Coming May 2025')"></i></div><p style="color:#4a6a7f;">Visionary Collective</p><small>Progressive House</small></div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 
@@ -469,7 +481,7 @@
         <div class="about-text">
           <p><strong>Visionary Sounds</strong> is a house music record label founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko) in South Africa. We are dedicated to releasing authentic, emotive house music that resonates with listeners worldwide.</p>
           <p>Our mission is to discover and nurture underground talent, pushing the boundaries of melodic and Afro-infused house. Every release is curated with a focus on hypnotic rhythms, warm basslines, and storytelling.</p>
-          <p>Based in Johannesburg and operating globally, Visionary Sounds has become a home for artists who seek to express raw emotion through electronic music. We believe in community, vinyl culture, and the power of the dancefloor.</p>
+          <p>Based in <strong>South Africa</strong> and operating globally, Visionary Sounds has become a home for artists who seek to express raw emotion through electronic music. We believe in community, vinyl culture, and the power of the dancefloor.</p>
           <p>Join us on this sonic journey — whether you're a producer, a DJ, or a lover of house music, you belong here.</p>
         </div>
         <div class="founder-card">
@@ -501,7 +513,7 @@
   <!-- MUSIC PAGE -->
   <div id="music-page" class="page">
     <div class="container" style="padding: 4rem 0;">
-      <h2 class="section-title">Latest Releases</h2>
+      <h2 class="section-title">All Releases</h2>
       <div class="music-grid">
         <div class="music-card">
           <div class="music-icon"><i class="fas fa-cloud-moon"></i></div>
@@ -536,7 +548,7 @@
   <div id="demo-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
-      <p>We are always searching for fresh house music, melodic house and Afro house. Send your tracks directly to our A&R team.</p>
+      <p>We are always searching for fresh house music. Send your tracks directly to our A&R team.</p>
       <div class="demo-contact-card">
         <h3><i class="fas fa-phone-alt"></i> Direct Contact</h3>
         <div class="contact-item">
@@ -549,14 +561,14 @@
           <div><strong>Email</strong><br><a href="mailto:ngqibekom@gmail.com" style="text-decoration: none; color: #1e2f3e;">ngqibekom@gmail.com</a></div>
           <button onclick="navigator.clipboard.writeText('ngqibekom@gmail.com'); alert('Email copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer; color: #2c7da0;"><i class="fas fa-copy"></i></button>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem; background: #eef3fc; padding: 1rem; border-radius: 1rem;"><i class="fas fa-info-circle"></i> Guidelines: send private SoundCloud / Dropbox links, include artist name, track title, bio. Only original house music.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; background: #eef3fc; padding: 1rem; border-radius: 1rem;"><i class="fas fa-info-circle"></i> Guidelines: send mp3 or wav as a document on WhatsApp or the links like mediafire, dropbox or google via email.</p>
       </div>
     </div>
   </div>
 </main>
 
 <footer>
-  <p>2026 Visionary Sounds</p>
+  <p>© 2026 Visionary Sounds</p>
   <p>Created By <a href="https://www.mwmtechnologies.co.za/" target="_blank">MWM Technologies</a></p>
 </footer>
 
@@ -592,7 +604,6 @@
       }
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Close mobile menu after click
     if (navLinksContainer.classList.contains('show')) {
       navLinksContainer.classList.remove('show');
     }
@@ -612,8 +623,6 @@
       if (pageId && pages[pageId]) showPage(pageId);
     });
   });
-
-  // Ensure home active at start (already)
 </script>
 </body>
 </html>
