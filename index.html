@@ -122,19 +122,44 @@
       background: #2563eb;
     }
 
-    /* Hero (Home) */
+    /* Hero (Home) with logo */
     .hero {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: white;
       padding: 5rem 0;
       border-radius: 0 0 2rem 2rem;
+      position: relative;
     }
 
-    .hero-content h2 {
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 2;
+    }
+
+    .hero-text h2 {
       font-size: 3rem;
       font-weight: 700;
       font-family: 'Playfair Display', serif;
       margin-bottom: 1rem;
+    }
+
+    .hero-logo {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-logo img {
+      max-width: 180px;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem;
     }
 
     .btn-primary {
@@ -235,22 +260,45 @@
       border: 1px solid #eef2f6;
     }
 
-    /* Demo row */
-    .demo-row {
+    /* About page with founder image */
+    .about-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 3rem;
       margin-top: 2rem;
     }
-
-    .demo-contact, .demo-form-box {
+    .about-text {
+      flex: 2;
+    }
+    .about-text p {
+      margin-bottom: 1.2rem;
+      color: #334155;
+    }
+    .founder-card {
       flex: 1;
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    .founder-card img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #2563eb;
+    }
+
+    /* Demo row (only contact, no form) */
+    .demo-contact-only {
       background: #ffffff;
       border-radius: 1.2rem;
       padding: 2rem;
       border: 1px solid #e2e8f0;
+      max-width: 600px;
+      margin: 0 auto;
     }
-
     .contact-item {
       display: flex;
       align-items: center;
@@ -261,15 +309,6 @@
       border-radius: 1rem;
     }
 
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1px solid #cbd5e1;
-      border-radius: 0.8rem;
-      font-family: 'Inter', sans-serif;
-      margin-bottom: 1rem;
-    }
-
     footer {
       background: #0f172a;
       color: #cbd5e6;
@@ -277,10 +316,18 @@
       padding: 2rem;
       margin-top: 2rem;
     }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
 
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; gap: 1rem; text-align: center; }
-      .hero-content h2 { font-size: 2rem; }
+      .hero-content { flex-direction: column; text-align: center; }
+      .hero-text h2 { font-size: 2rem; }
       .section-title { font-size: 1.8rem; }
     }
   </style>
@@ -309,12 +356,17 @@
   <div id="home-page" class="page active-page">
     <div class="hero">
       <div class="container hero-content">
-        <h2>Visionary Sounds</h2>
-        <p class="founder" style="margin: 0.5rem 0;">Founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko)</p>
-        <p style="max-width: 600px; margin: 1rem 0 2rem;">Cutting-edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
-          <a class="btn-outline" data-page="music"><i class="fas fa-play-circle"></i> Latest Music</a>
+        <div class="hero-text">
+          <h2>Visionary Sounds</h2>
+          <p class="founder" style="margin: 0.5rem 0;">Founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko)</p>
+          <p style="max-width: 600px; margin: 1rem 0 2rem;">Cutting-edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
+            <a class="btn-outline" data-page="music"><i class="fas fa-play-circle"></i> Latest Music</a>
+          </div>
+        </div>
+        <div class="hero-logo">
+          <img src="1.png" alt="Visionary Sounds Logo">
         </div>
       </div>
     </div>
@@ -330,15 +382,15 @@
   <div id="about-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">About Visionary Sounds</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 3rem; margin-top: 2rem;">
-        <div style="flex: 2;">
-          <p style="margin-bottom: 1.2rem; color: #334155;"><strong>Visionary Sounds</strong> is a house music record label founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko) in South Africa. We are dedicated to releasing authentic, emotive house music that resonates with listeners worldwide.</p>
-          <p style="margin-bottom: 1.2rem; color: #334155;">Our mission is to discover and nurture underground talent, pushing the boundaries of melodic and Afro-infused house. Every release is curated with a focus on hypnotic rhythms, warm basslines, and storytelling.</p>
-          <p style="margin-bottom: 1.2rem; color: #334155;">Based in Johannesburg and operating globally, Visionary Sounds has become a home for artists who seek to express raw emotion through electronic music. We believe in community, vinyl culture, and the power of the dancefloor.</p>
-          <p style="color: #334155;">Join us on this sonic journey — whether you're a producer, a DJ, or a lover of house music, you belong here.</p>
+      <div class="about-container">
+        <div class="about-text">
+          <p><strong>Visionary Sounds</strong> is a house music record label founded by <strong>Tremor Rsa</strong> (Maninjwa Ntsikayomzi Ngqibeko) in South Africa. We are dedicated to releasing authentic, emotive house music that resonates with listeners worldwide.</p>
+          <p>Our mission is to discover and nurture underground talent, pushing the boundaries of melodic and Afro-infused house. Every release is curated with a focus on hypnotic rhythms, warm basslines, and storytelling.</p>
+          <p>Based in Johannesburg and operating globally, Visionary Sounds has become a home for artists who seek to express raw emotion through electronic music. We believe in community, vinyl culture, and the power of the dancefloor.</p>
+          <p>Join us on this sonic journey — whether you're a producer, a DJ, or a lover of house music, you belong here.</p>
         </div>
-        <div style="flex: 1; background: #ffffff; border-radius: 1rem; padding: 1.5rem; border: 1px solid #e2e8f0; text-align: center;">
-          <i class="fas fa-user-tie" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem; display: inline-block;"></i>
+        <div class="founder-card">
+          <img src="2.png" alt="Tremor Rsa - Founder">
           <h3>Tremor Rsa</h3>
           <p><strong>Maninjwa Ntsikayomzi Ngqibeko</strong></p>
           <p style="font-size: 0.9rem; margin-top: 0.5rem;">Founder, Producer, Curator</p>
@@ -397,44 +449,32 @@
     </div>
   </div>
 
-  <!-- DEMO PAGE -->
+  <!-- DEMO PAGE (only contact, no form) -->
   <div id="demo-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
       <p>We are always searching for fresh house music, melodic house and Afro house. Send your tracks directly to our A&R team.</p>
-      <div class="demo-row">
-        <div class="demo-contact">
-          <h3><i class="fas fa-phone-alt"></i> Direct Contact</h3>
-          <div class="contact-item">
-            <i class="fas fa-mobile-alt fa-lg"></i>
-            <div><strong>WhatsApp / Call</strong><br><a href="tel:+27655915185" style="text-decoration: none; color: #1e293b;">065 591 5185</a></div>
-            <button onclick="navigator.clipboard.writeText('0655915185'); alert('Number copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer;"><i class="fas fa-copy"></i></button>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope fa-lg"></i>
-            <div><strong>Email</strong><br><a href="mailto:ngqibekom@gmail.com" style="text-decoration: none; color: #1e293b;">ngqibekom@gmail.com</a></div>
-            <button onclick="navigator.clipboard.writeText('ngqibekom@gmail.com'); alert('Email copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer;"><i class="fas fa-copy"></i></button>
-          </div>
-          <p style="margin-top: 1rem; font-size: 0.85rem; background: #f1f5f9; padding: 0.8rem; border-radius: 0.8rem;"><i class="fas fa-info-circle"></i> Guidelines: send private SoundCloud / Dropbox links, include artist name, track title, bio. Only original house music.</p>
+      <div class="demo-contact-only">
+        <h3><i class="fas fa-phone-alt"></i> Direct Contact</h3>
+        <div class="contact-item">
+          <i class="fas fa-mobile-alt fa-lg"></i>
+          <div><strong>WhatsApp / Call</strong><br><a href="tel:+27655915185" style="text-decoration: none; color: #1e293b;">065 591 5185</a></div>
+          <button onclick="navigator.clipboard.writeText('0655915185'); alert('Number copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer;"><i class="fas fa-copy"></i></button>
         </div>
-        <div class="demo-form-box">
-          <h3>Quick demo request</h3>
-          <form id="demoForm">
-            <input type="text" placeholder="Artist / Project name" id="demoArtist" required>
-            <input type="email" placeholder="Your email address" id="demoEmail" required>
-            <textarea rows="3" placeholder="Tell us about your track and include streaming link"></textarea>
-            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> Send demo</button>
-          </form>
-          <p style="font-size: 0.7rem; margin-top: 1rem;">For urgent submissions, use phone/WhatsApp. We reply within 5–7 days.</p>
+        <div class="contact-item">
+          <i class="fas fa-envelope fa-lg"></i>
+          <div><strong>Email</strong><br><a href="mailto:ngqibekom@gmail.com" style="text-decoration: none; color: #1e293b;">ngqibekom@gmail.com</a></div>
+          <button onclick="navigator.clipboard.writeText('ngqibekom@gmail.com'); alert('Email copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer;"><i class="fas fa-copy"></i></button>
         </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; background: #f1f5f9; padding: 0.8rem; border-radius: 0.8rem;"><i class="fas fa-info-circle"></i> Guidelines: send private SoundCloud / Dropbox links, include artist name, track title, bio. Only original house music.</p>
       </div>
     </div>
   </div>
 </main>
 
 <footer>
-  <p>© 2025 Visionary Sounds Recordings — Founded by Tremor Rsa (Maninjwa Ntsikayomzi Ngqibeko)</p>
-  <p style="margin-top: 0.5rem; font-size: 0.8rem;">House music frequencies from South Africa to the world.</p>
+  <p>2026 Visionary Sounds</p>
+  <p>Created By <a href="https://www.mwmtechnologies.co.za/" target="_blank">MWM Technologies</a></p>
 </footer>
 
 <script>
@@ -452,24 +492,19 @@
   const btns = document.querySelectorAll('[data-page]');
 
   function showPage(pageId) {
-    // Hide all pages
     Object.values(pages).forEach(page => {
       page.classList.remove('active-page');
     });
-    // Show selected
     pages[pageId].classList.add('active-page');
-    // Update active nav style
     navLinks.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('data-page') === pageId) {
         link.classList.add('active');
       }
     });
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Add click event to nav links
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -478,7 +513,6 @@
     });
   });
 
-  // Also handle buttons that have data-page attribute
   btns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -487,25 +521,7 @@
     });
   });
 
-  // Demo form handler
-  const form = document.getElementById('demoForm');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const artist = document.getElementById('demoArtist').value.trim();
-      const email = document.getElementById('demoEmail').value.trim();
-      if (!artist || !email) {
-        alert('Please fill artist name and email.');
-        return;
-      }
-      alert(`✅ Thank you ${artist}! We received your demo request. Also send your track directly to ngqibekom@gmail.com for faster review.`);
-      form.reset();
-    });
-  }
-
-  // Set default page to home (already active)
-  // But ensure URL hash or initial state is consistent
-  // If there's a hash in URL, we could handle but not needed.
+  // Ensure home is active by default (already active)
 </script>
 </body>
 </html>
