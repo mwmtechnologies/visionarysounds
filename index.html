@@ -105,16 +105,19 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* INCREASED PADDING TO FIX WORDS TOO CLOSE TO EDGES */
+    /* ========== FIXED: EXTREME HORIZONTAL PADDING ========== */
     .container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 10%;  /* more breathing room on both sides */
+      padding: 0 12%;  /* very wide margins on both sides */
     }
 
-    /* All text blocks have extra left/right spacing */
-    p, .hero-text p, .about-text p, .demo-contact-card p, .welcome-text, .podcast-item p, .music-info p, .section-title {
-      max-width: 90ch;
+    /* All text elements get extra breathing room */
+    p, .hero-text p, .about-text p, .demo-contact-card p, 
+    .welcome-text, .podcast-item p, .music-info p,
+    .section-title, .hero-text h2, .founder-card p,
+    .contact-item div, .demo-contact-card h3 {
+      max-width: 85ch;
       margin-left: auto;
       margin-right: auto;
     }
@@ -150,6 +153,10 @@
       padding: 4rem 0;
       position: relative;
       overflow: hidden;
+    }
+    /* Hero container also respects same padding */
+    .hero .container {
+      padding: 0 12%;
     }
     .hero-content {
       display: flex;
@@ -359,7 +366,12 @@
       text-decoration: underline;
     }
 
-    /* Responsive */
+    /* Responsive: even more padding on smaller screens */
+    @media (max-width: 1000px) {
+      .container, .hero .container {
+        padding: 0 8%;
+      }
+    }
     @media (max-width: 800px) {
       .mobile-menu-btn {
         display: block;
@@ -386,17 +398,19 @@
         width: 80%;
         margin: 0 auto;
       }
-      .container {
+      .container, .hero .container {
         padding: 0 6%;
       }
     }
-
     @media (max-width: 550px) {
-      .container {
+      .container, .hero .container {
         padding: 0 5%;
       }
       .section-title {
         font-size: 1.9rem;
+      }
+      .demo-contact-card {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -433,7 +447,6 @@
           <p style="max-width: 550px; margin-bottom: 2rem;">Cutting‑edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
-            <!-- Changed Latest Music button to same color as demo button (btn-primary) -->
             <a class="btn-primary" data-page="music"><i class="fas fa-play-circle"></i> Latest Music</a>
           </div>
         </div>
@@ -522,7 +535,7 @@
     </div>
   </div>
 
-  <!-- DEMO PAGE (only contact, guidelines unchanged) -->
+  <!-- DEMO PAGE (only contact) -->
   <div id="demo-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
