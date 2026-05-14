@@ -284,15 +284,15 @@
     .podcast-list {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 1.5rem;
       margin-top: 2rem;
     }
     .podcast-item {
       background: white;
       border-radius: 1.2rem;
-      padding: 1.2rem 1.5rem;
+      padding: 1rem;
       display: flex;
-      justify-content: space-between;
+      gap: 1.2rem;
       align-items: center;
       flex-wrap: wrap;
       border: 1px solid #e2eaf1;
@@ -302,6 +302,36 @@
       background: #ffffff;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
       transform: translateX(5px);
+    }
+    .podcast-cover {
+      width: 80px;
+      height: 80px;
+      border-radius: 1rem;
+      object-fit: cover;
+      background: #f0f2f5;
+    }
+    .podcast-details {
+      flex: 1;
+    }
+    .podcast-details h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .podcast-details p {
+      color: #4a627a;
+      font-size: 0.85rem;
+    }
+    .podcast-link {
+      background: #2c7da0;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: 0.2s;
+    }
+    .podcast-link:hover {
+      background: #1f5e7a;
     }
 
     /* About page with founder image */
@@ -382,7 +412,7 @@
       text-decoration: underline;
     }
 
-    /* Responsive: ensure extra padding on mobile */
+    /* Responsive */
     @media (max-width: 800px) {
       body {
         padding-left: 3vw !important;
@@ -421,6 +451,15 @@
       }
       .container {
         padding: 0 3vw !important;
+      }
+      .podcast-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      .podcast-cover {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
       }
     }
     @media (max-width: 550px) {
@@ -485,7 +524,6 @@
         <h2 class="section-title">Welcome</h2>
         <p class="welcome-text" style="font-size: 1.2rem; color: #2c3e4e;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
       </section>
-      <!-- LATEST RELEASES SECTION REMOVED from home as requested -->
     </div>
   </div>
 
@@ -512,50 +550,127 @@
     </div>
   </div>
 
-  <!-- ARTISTS PAGE -->
+  <!-- ARTISTS PAGE - Updated with Tremor Rsa as DJ/Producer using founder image -->
   <div id="artists-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Artists & Collaborators</h2>
       <p style="margin-bottom: 1rem; color: #2c3e4e;">Visionary Sounds is proud to work with these exceptional house music talents.</p>
       <div class="artist-grid">
-        <div class="artist-card"><i class="fas fa-user-astronaut"></i><h4>Tremor Rsa</h4><p>Founder / Producer</p><small>Maninjwa Ntsikayomzi Ngqibeko</small></div>
-        <div class="artist-card"><i class="fas fa-head-side-vr"></i><h4>Luna Deep</h4><p>Resident Producer</p><small>Melodic Architect</small></div>
-        <div class="artist-card"><i class="fas fa-microphone-alt"></i><h4>SoulSpectrum</h4><p>Vocalist / Songwriter</p></div>
-        <div class="artist-card"><i class="fas fa-dj"></i><h4>Echo Motif</h4><p>Label Affiliate</p></div>
+        <div class="artist-card">
+          <img src="2.png" alt="Tremor Rsa" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover;">
+          <h4>Tremor Rsa</h4>
+          <p>DJ / Producer</p>
+          <small>Maninjwa Ntsikayomzi Ngqibeko</small>
+        </div>
+        <div class="artist-card">
+          <i class="fas fa-head-side-vr"></i>
+          <h4>Luna Deep</h4>
+          <p>Resident Producer</p>
+          <small>Melodic Architect</small>
+        </div>
+        <div class="artist-card">
+          <i class="fas fa-microphone-alt"></i>
+          <h4>SoulSpectrum</h4>
+          <p>Vocalist / Songwriter</p>
+        </div>
+        <div class="artist-card">
+          <i class="fas fa-dj"></i>
+          <h4>Echo Motif</h4>
+          <p>Label Affiliate</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- MUSIC PAGE -->
+  <!-- MUSIC PAGE - Creative "New Music Coming Soon" section -->
   <div id="music-page" class="page">
     <div class="container" style="padding: 4rem 0;">
-      <h2 class="section-title">All Releases</h2>
+      <h2 class="section-title">New Music</h2>
       <div class="music-grid">
         <div class="music-card">
-          <div class="music-icon"><i class="fas fa-cloud-moon"></i></div>
-          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Midnight Mirage</h3><i class="fas fa-play play-icon" onclick="alert('▶️ Preview: Midnight Mirage — out now on all platforms')"></i></div><p style="color:#4a6a7f;">Tremor Rsa</p><small>House · 6:42</small></div>
+          <div class="music-icon"><i class="fas fa-hourglass-half"></i></div>
+          <div class="music-info">
+            <h3>Something Fresh Is Loading</h3>
+            <p style="color:#4a6a7f;">We're in the studio cooking up new heat. Stay tuned for upcoming releases, exclusive tracks, and fresh Vibes.</p>
+            <small>Coming 2025</small>
+          </div>
         </div>
         <div class="music-card">
-          <div class="music-icon"><i class="fas fa-water"></i></div>
-          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Silent Whispers</h3><i class="fas fa-play play-icon" onclick="alert('🎧 Listen to Silent Whispers · Luna Deep & SoulSpectrum')"></i></div><p style="color:#4a6a7f;">Luna Deep, SoulSpectrum</p><small>Melodic House · 5:58</small></div>
+          <div class="music-icon"><i class="fas fa-head-side-headphones"></i></div>
+          <div class="music-info">
+            <h3>Next Level Sounds</h3>
+            <p style="color:#4a6a7f;">New music dropping soon. Follow us on socials to be the first to hear what's next.</p>
+            <small>Stay Connected</small>
+          </div>
         </div>
         <div class="music-card">
-          <div class="music-icon"><i class="fas fa-sun"></i></div>
-          <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Echoes of Orion</h3><i class="fas fa-play play-icon" onclick="alert('🌌 Echoes of Orion — Coming May 2025')"></i></div><p style="color:#4a6a7f;">Visionary Collective</p><small>Progressive House</small></div>
+          <div class="music-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="music-info">
+            <h3>Upcoming Release</h3>
+            <p style="color:#4a6a7f;">A brand new single is on the horizon. Get ready for fresh house music that moves your soul.</p>
+            <small>Announcement Soon</small>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PODCAST PAGE -->
+  <!-- PODCAST PAGE - Updated with all episodes and images -->
   <div id="podcast-page" class="page">
     <div class="container" style="padding: 4rem 0;">
-      <h2 class="section-title">Visionary Podcast</h2>
+      <h2 class="section-title">Visionary Sounds Podcast</h2>
       <p>Monthly house music journeys, guest mixes and label showcases.</p>
       <div class="podcast-list">
-        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2c7da0;"></i> VP#009: Soul of the Underground</h3><p>Tremor Rsa & Luna Deep · Hypnotic session</p><small>Apr 10, 2025</small></div><button class="btn-outline" onclick="alert('🎙️ Episode streaming soon on Mixcloud')">Listen →</button></div>
-        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2c7da0;"></i> VP#008: Midnight Rituals (Founder's Cut)</h3><p>Curated by Maninjwa Ntsikayomzi Ngqibeko</p><small>Mar 2, 2025</small></div><button class="btn-outline" onclick="alert('🔊 Available on SoundCloud')">Stream →</button></div>
-        <div class="podcast-item"><div><h3><i class="fas fa-circle-play" style="color:#2c7da0;"></i> VP#007: House Horizons</h3><p>Unreleased demos & upcoming signings</p><small>Feb 2025</small></div><button class="btn-outline" onclick="alert('🎧 Preview exclusive')">Preview →</button></div>
+        <!-- Episode 17 -->
+        <div class="podcast-item">
+          <img src="3.jpg" alt="Episode 17 cover" class="podcast-cover">
+          <div class="podcast-details">
+            <h3>Visionary Sounds Podcast Episode 17</h3>
+            <p>DJ Bongz</p>
+            <small>House, Old School House, Deep House</small>
+          </div>
+          <a href="https://hearthis.at/visionary-sounds-podcast/69fed8f01cdb9/" target="_blank" class="podcast-link">Listen →</a>
+        </div>
+        <!-- Episode 16 -->
+        <div class="podcast-item">
+          <img src="4.jpg" alt="Episode 16 cover" class="podcast-cover">
+          <div class="podcast-details">
+            <h3>Visionary Sounds Podcast Episode 16</h3>
+            <p>Walkeria Matji</p>
+            <small>Deep House, Soulful House</small>
+          </div>
+          <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-16-guest-mix-by-walkeria-matji/" target="_blank" class="podcast-link">Listen →</a>
+        </div>
+        <!-- Episode 15 -->
+        <div class="podcast-item">
+          <img src="5.jpg" alt="Episode 15 cover" class="podcast-cover">
+          <div class="podcast-details">
+            <h3>Visionary Sounds Podcast Episode 15</h3>
+            <p>Monkey Face</p>
+            <small>Broken Beats, Soulful House, Deep House</small>
+          </div>
+          <a href="https://hearthis.at/visionary-sounds-podcast/inbound7543605277566641395/" target="_blank" class="podcast-link">Listen →</a>
+        </div>
+        <!-- Episode 14 -->
+        <div class="podcast-item">
+          <img src="6.jpg" alt="Episode 14 cover" class="podcast-cover">
+          <div class="podcast-details">
+            <h3>Visionary Sounds Podcast Episode 14</h3>
+            <p>Lord Deep</p>
+            <small>Deep House, Afro House</small>
+          </div>
+          <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-14-guest-mix-by-lord-deep/" target="_blank" class="podcast-link">Listen →</a>
+        </div>
+        <!-- Episode 13 -->
+        <div class="podcast-item">
+          <img src="7.png" alt="Episode 13 cover" class="podcast-cover">
+          <div class="podcast-details">
+            <h3>Visionary Sounds Podcast Episode 13</h3>
+            <p>Rey Da Deep</p>
+            <small>Deep House, Soulful House, Groove-Driven</small>
+          </div>
+          <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-13-guest-mix-by-rey-da-deep/" target="_blank" class="podcast-link">Listen →</a>
+        </div>
       </div>
     </div>
   </div>
