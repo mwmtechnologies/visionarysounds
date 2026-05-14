@@ -105,16 +105,16 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* CONTAINER WITH SIGNIFICANT PADDING ON ALL SIDES - FIXES POINT 1 */
+    /* INCREASED PADDING TO FIX WORDS TOO CLOSE TO EDGES */
     .container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 8%;  /* generous padding to avoid text touching edges */
+      padding: 0 10%;  /* more breathing room on both sides */
     }
 
-    /* All text blocks have max-width for comfortable reading */
-    p, .hero-text p, .about-text p, .demo-contact-card p, .welcome-text, .podcast-item p, .music-info p {
-      max-width: 85ch;
+    /* All text blocks have extra left/right spacing */
+    p, .hero-text p, .about-text p, .demo-contact-card p, .welcome-text, .podcast-item p, .music-info p, .section-title {
+      max-width: 90ch;
       margin-left: auto;
       margin-right: auto;
     }
@@ -318,7 +318,7 @@
       object-fit: cover;
     }
 
-    /* Demo page - only contact card, with extra padding */
+    /* Demo page - only contact card */
     .demo-contact-card {
       max-width: 750px;
       margin: 2rem auto 0;
@@ -430,11 +430,11 @@
       <div class="container hero-content">
         <div class="hero-text">
           <h2>Visionary Sounds</h2>
-          <!-- "Founded by..." sentence removed -->
           <p style="max-width: 550px; margin-bottom: 2rem;">Cutting‑edge house music from South Africa to the world. Hypnotic grooves, soulful storytelling, underground authenticity.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a class="btn-primary" data-page="demo"><i class="fas fa-headphones"></i> Submit Demo</a>
-            <a class="btn-outline" data-page="music"><i class="fas fa-play-circle"></i> Latest Music</a>
+            <!-- Changed Latest Music button to same color as demo button (btn-primary) -->
+            <a class="btn-primary" data-page="music"><i class="fas fa-play-circle"></i> Latest Music</a>
           </div>
         </div>
         <div class="hero-logo">
@@ -447,25 +447,7 @@
         <h2 class="section-title">Welcome</h2>
         <p class="welcome-text" style="font-size: 1.2rem; color: #2c3e4e;">Visionary Sounds is a house music record label dedicated to authentic, emotive, and rhythm‑driven productions. We represent artists who blend soul with electronic frequencies.</p>
       </section>
-
-      <!-- LATEST MUSIC SECTION - clearly visible on home -->
-      <section>
-        <h2 class="section-title">Latest Releases</h2>
-        <div class="music-grid">
-          <div class="music-card">
-            <div class="music-icon"><i class="fas fa-cloud-moon"></i></div>
-            <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Midnight Mirage</h3><i class="fas fa-play play-icon" onclick="alert('▶️ Preview: Midnight Mirage — out now on all platforms')"></i></div><p style="color:#4a6a7f;">Tremor Rsa</p><small>House · 6:42</small></div>
-          </div>
-          <div class="music-card">
-            <div class="music-icon"><i class="fas fa-water"></i></div>
-            <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Silent Whispers</h3><i class="fas fa-play play-icon" onclick="alert('🎧 Listen to Silent Whispers · Luna Deep & SoulSpectrum')"></i></div><p style="color:#4a6a7f;">Luna Deep, SoulSpectrum</p><small>Melodic House · 5:58</small></div>
-          </div>
-          <div class="music-card">
-            <div class="music-icon"><i class="fas fa-sun"></i></div>
-            <div class="music-info"><div style="display: flex; justify-content: space-between;"><h3>Echoes of Orion</h3><i class="fas fa-play play-icon" onclick="alert('🌌 Echoes of Orion — Coming May 2025')"></i></div><p style="color:#4a6a7f;">Visionary Collective</p><small>Progressive House</small></div>
-          </div>
-        </div>
-      </section>
+      <!-- LATEST RELEASES SECTION REMOVED from home as requested -->
     </div>
   </div>
 
@@ -540,7 +522,7 @@
     </div>
   </div>
 
-  <!-- DEMO PAGE (only contact, guidelines changed) -->
+  <!-- DEMO PAGE (only contact, guidelines unchanged) -->
   <div id="demo-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
