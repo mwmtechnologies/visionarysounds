@@ -19,12 +19,10 @@
       font-family: 'Inter', sans-serif;
       line-height: 1.5;
       scroll-behavior: smooth;
-      /* GLOBAL PADDING: force spacing on body itself */
       padding-left: 5vw !important;
       padding-right: 5vw !important;
     }
 
-    /* Header & Navigation */
     .site-header {
       background: #ffffff;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
@@ -64,7 +62,6 @@
       letter-spacing: 1px;
     }
 
-    /* Desktop nav */
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -85,7 +82,6 @@
       border-bottom: 3px solid #2c7da0;
     }
 
-    /* Mobile menu button (3 lines) */
     .mobile-menu-btn {
       display: none;
       font-size: 1.8rem;
@@ -99,7 +95,6 @@
       color: #2c7da0;
     }
 
-    /* Main content & sections */
     .page {
       display: none;
       animation: fadeUp 0.4s ease-out;
@@ -112,14 +107,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* FIX: EXTREME HORIZONTAL PADDING on all content blocks */
     .container {
       max-width: 100% !important;
       margin: 0 auto !important;
-      padding: 0 4vw !important;  /* extra breathing on sides */
+      padding: 0 4vw !important;
     }
 
-    /* All text elements get extra spacing and no max-width restrictions */
     p, .hero-text p, .about-text p, .demo-contact-card p, 
     .welcome-text, .podcast-item p, .music-info p,
     .section-title, .hero-text h2, .founder-card p,
@@ -155,7 +148,6 @@
       border-radius: 4px;
     }
 
-    /* Hero section (Home) */
     .hero {
       background: linear-gradient(125deg, #0a1c2a 0%, #1b4a6e 100%);
       color: white;
@@ -203,7 +195,6 @@
       transform: scale(1.02);
     }
 
-    /* Buttons */
     .btn-primary {
       background: #2c7da0;
       border: none;
@@ -244,40 +235,65 @@
       border-color: #2c7da0;
     }
 
-    /* Artist & Music grids */
-    .artist-grid, .music-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 2rem;
+    /* Artist grid - single card centered */
+    .artist-single {
+      display: flex;
+      justify-content: center;
       margin-top: 2rem;
     }
-    .artist-card, .music-card {
+    .artist-card {
       background: white;
       border-radius: 1.5rem;
-      padding: 1.8rem;
+      padding: 2rem;
       text-align: center;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
       border: 1px solid #e9eef3;
       transition: all 0.25s ease;
+      max-width: 350px;
+      width: 100%;
     }
-    .artist-card:hover, .music-card:hover {
+    .artist-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
       border-color: #cbdde9;
     }
-    .artist-card i, .music-card .music-icon {
-      font-size: 2.8rem;
+    .artist-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      border: 3px solid #2c7da0;
+    }
+    .artist-card h4 {
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+    }
+    .artist-card p {
+      color: #4a627a;
+    }
+
+    /* Music section - simple coming soon */
+    .coming-soon {
+      background: white;
+      border-radius: 2rem;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      border: 1px solid #e2eaf1;
+    }
+    .coming-soon i {
+      font-size: 4rem;
       color: #2c7da0;
       margin-bottom: 1rem;
     }
-    .play-icon {
-      cursor: pointer;
-      color: #2c7da0;
-      transition: 0.2s;
+    .coming-soon h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
-    .play-icon:hover {
-      transform: scale(1.1);
-      color: #1f5e7a;
+    .coming-soon p {
+      color: #4a627a;
+      font-size: 1.1rem;
     }
 
     /* Podcast list */
@@ -334,7 +350,7 @@
       background: #1f5e7a;
     }
 
-    /* About page with founder image */
+    /* About page */
     .about-container {
       display: flex;
       flex-wrap: wrap;
@@ -367,7 +383,7 @@
       object-fit: cover;
     }
 
-    /* Demo page - only contact card */
+    /* Demo page */
     .demo-contact-card {
       max-width: 750px;
       margin: 2rem auto 0;
@@ -391,7 +407,6 @@
       background: #eef3fc;
     }
 
-    /* Footer */
     footer {
       background: #0a1c2a;
       color: #bdd4e2;
@@ -412,7 +427,6 @@
       text-decoration: underline;
     }
 
-    /* Responsive */
     @media (max-width: 800px) {
       body {
         padding-left: 3vw !important;
@@ -475,6 +489,9 @@
       }
       .demo-contact-card {
         padding: 1.5rem;
+      }
+      .coming-soon h3 {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -550,78 +567,39 @@
     </div>
   </div>
 
-  <!-- ARTISTS PAGE - Updated with Tremor Rsa as DJ/Producer using founder image -->
+  <!-- ARTISTS PAGE - Only Tremor Rsa, no real name -->
   <div id="artists-page" class="page">
     <div class="container" style="padding: 4rem 0;">
-      <h2 class="section-title">Artists & Collaborators</h2>
-      <p style="margin-bottom: 1rem; color: #2c3e4e;">Visionary Sounds is proud to work with these exceptional house music talents.</p>
-      <div class="artist-grid">
+      <h2 class="section-title">Artist</h2>
+      <p style="margin-bottom: 1rem; color: #2c3e4e;">Visionary Sounds is proud to work with this exceptional house music talent.</p>
+      <div class="artist-single">
         <div class="artist-card">
-          <img src="2.png" alt="Tremor Rsa" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover;">
+          <img src="2.png" alt="Tremor Rsa">
           <h4>Tremor Rsa</h4>
           <p>DJ / Producer</p>
-          <small>Maninjwa Ntsikayomzi Ngqibeko</small>
-        </div>
-        <div class="artist-card">
-          <i class="fas fa-head-side-vr"></i>
-          <h4>Luna Deep</h4>
-          <p>Resident Producer</p>
-          <small>Melodic Architect</small>
-        </div>
-        <div class="artist-card">
-          <i class="fas fa-microphone-alt"></i>
-          <h4>SoulSpectrum</h4>
-          <p>Vocalist / Songwriter</p>
-        </div>
-        <div class="artist-card">
-          <i class="fas fa-dj"></i>
-          <h4>Echo Motif</h4>
-          <p>Label Affiliate</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MUSIC PAGE - Creative "New Music Coming Soon" section -->
+  <!-- MUSIC PAGE - Simple "New Music Coming Soon" -->
   <div id="music-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">New Music</h2>
-      <div class="music-grid">
-        <div class="music-card">
-          <div class="music-icon"><i class="fas fa-hourglass-half"></i></div>
-          <div class="music-info">
-            <h3>Something Fresh Is Loading</h3>
-            <p style="color:#4a6a7f;">We're in the studio cooking up new heat. Stay tuned for upcoming releases, exclusive tracks, and fresh Vibes.</p>
-            <small>Coming 2025</small>
-          </div>
-        </div>
-        <div class="music-card">
-          <div class="music-icon"><i class="fas fa-head-side-headphones"></i></div>
-          <div class="music-info">
-            <h3>Next Level Sounds</h3>
-            <p style="color:#4a6a7f;">New music dropping soon. Follow us on socials to be the first to hear what's next.</p>
-            <small>Stay Connected</small>
-          </div>
-        </div>
-        <div class="music-card">
-          <div class="music-icon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="music-info">
-            <h3>Upcoming Release</h3>
-            <p style="color:#4a6a7f;">A brand new single is on the horizon. Get ready for fresh house music that moves your soul.</p>
-            <small>Announcement Soon</small>
-          </div>
-        </div>
+      <div class="coming-soon">
+        <i class="fas fa-music"></i>
+        <h3>New Music Coming Soon</h3>
+        <p>Fresh house music is on the horizon. Stay tuned for upcoming releases, exclusive tracks, and new Vibes.</p>
       </div>
     </div>
   </div>
 
-  <!-- PODCAST PAGE - Updated with all episodes and images -->
+  <!-- PODCAST PAGE -->
   <div id="podcast-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Visionary Sounds Podcast</h2>
       <p>Monthly house music journeys, guest mixes and label showcases.</p>
       <div class="podcast-list">
-        <!-- Episode 17 -->
         <div class="podcast-item">
           <img src="3.jpg" alt="Episode 17 cover" class="podcast-cover">
           <div class="podcast-details">
@@ -631,7 +609,6 @@
           </div>
           <a href="https://hearthis.at/visionary-sounds-podcast/69fed8f01cdb9/" target="_blank" class="podcast-link">Listen →</a>
         </div>
-        <!-- Episode 16 -->
         <div class="podcast-item">
           <img src="4.jpg" alt="Episode 16 cover" class="podcast-cover">
           <div class="podcast-details">
@@ -641,7 +618,6 @@
           </div>
           <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-16-guest-mix-by-walkeria-matji/" target="_blank" class="podcast-link">Listen →</a>
         </div>
-        <!-- Episode 15 -->
         <div class="podcast-item">
           <img src="5.jpg" alt="Episode 15 cover" class="podcast-cover">
           <div class="podcast-details">
@@ -651,7 +627,6 @@
           </div>
           <a href="https://hearthis.at/visionary-sounds-podcast/inbound7543605277566641395/" target="_blank" class="podcast-link">Listen →</a>
         </div>
-        <!-- Episode 14 -->
         <div class="podcast-item">
           <img src="6.jpg" alt="Episode 14 cover" class="podcast-cover">
           <div class="podcast-details">
@@ -661,7 +636,6 @@
           </div>
           <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-14-guest-mix-by-lord-deep/" target="_blank" class="podcast-link">Listen →</a>
         </div>
-        <!-- Episode 13 -->
         <div class="podcast-item">
           <img src="7.png" alt="Episode 13 cover" class="podcast-cover">
           <div class="podcast-details">
@@ -675,7 +649,7 @@
     </div>
   </div>
 
-  <!-- DEMO PAGE (only contact) -->
+  <!-- DEMO PAGE -->
   <div id="demo-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Demo Submissions</h2>
@@ -704,14 +678,12 @@
 </footer>
 
 <script>
-  // Mobile menu toggle (3 lines)
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const navLinksContainer = document.getElementById('navLinks');
   mobileBtn.addEventListener('click', () => {
     navLinksContainer.classList.toggle('show');
   });
 
-  // Page switching logic
   const pages = {
     home: document.getElementById('home-page'),
     about: document.getElementById('about-page'),
