@@ -235,7 +235,6 @@
       border-color: #2c7da0;
     }
 
-    /* Artist grid - single card centered */
     .artist-single {
       display: flex;
       justify-content: center;
@@ -273,7 +272,6 @@
       color: #4a627a;
     }
 
-    /* Music section - simple coming soon */
     .coming-soon {
       background: white;
       border-radius: 2rem;
@@ -296,10 +294,10 @@
       font-size: 1.1rem;
     }
 
-    /* Podcast list - genres removed */
+    /* Podcast grid - 2 columns for more episodes */
     .podcast-list {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
     }
@@ -308,44 +306,47 @@
       border-radius: 1.2rem;
       padding: 1rem;
       display: flex;
-      gap: 1.2rem;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
+      text-align: center;
       border: 1px solid #e2eaf1;
       transition: 0.2s;
     }
     .podcast-item:hover {
       background: #ffffff;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      transform: translateX(5px);
+      transform: translateY(-5px);
     }
     .podcast-cover {
-      width: 80px;
-      height: 80px;
+      width: 100%;
+      max-width: 200px;
       border-radius: 1rem;
       object-fit: cover;
       background: #f0f2f5;
+      margin-bottom: 0.8rem;
     }
     .podcast-details {
-      flex: 1;
+      width: 100%;
     }
     .podcast-details h3 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 0.2rem;
     }
     .podcast-details p {
       color: #4a627a;
       font-size: 0.9rem;
       font-weight: 500;
+      margin-bottom: 0.8rem;
     }
     .podcast-link {
       background: #2c7da0;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.2rem;
       border-radius: 2rem;
       text-decoration: none;
       font-size: 0.8rem;
       transition: 0.2s;
+      display: inline-block;
     }
     .podcast-link:hover {
       background: #1f5e7a;
@@ -408,6 +409,7 @@
       background: #eef3fc;
     }
 
+    /* Footer with social links */
     footer {
       background: #0a1c2a;
       color: #bdd4e2;
@@ -419,10 +421,33 @@
       padding-left: 5vw;
       padding-right: 5vw;
     }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .footer-links a {
+      color: #7ab3c8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.2s;
+    }
+    .footer-links a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    footer p {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
     footer a {
       color: #7ab3c8;
       text-decoration: none;
-      font-weight: 500;
     }
     footer a:hover {
       text-decoration: underline;
@@ -467,14 +492,13 @@
       .container {
         padding: 0 3vw !important;
       }
-      .podcast-item {
-        flex-direction: column;
-        text-align: center;
+      .podcast-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
       }
-      .podcast-cover {
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
+      .footer-links {
+        flex-direction: column;
+        gap: 0.8rem;
       }
     }
     @media (max-width: 550px) {
@@ -568,7 +592,7 @@
     </div>
   </div>
 
-  <!-- ARTISTS PAGE - Only Tremor Rsa -->
+  <!-- ARTISTS PAGE -->
   <div id="artists-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Artist</h2>
@@ -595,7 +619,7 @@
     </div>
   </div>
 
-  <!-- PODCAST PAGE - Genres removed -->
+  <!-- PODCAST PAGE - 2 column grid -->
   <div id="podcast-page" class="page">
     <div class="container" style="padding: 4rem 0;">
       <h2 class="section-title">Visionary Sounds Podcast</h2>
@@ -606,40 +630,40 @@
           <div class="podcast-details">
             <h3>Visionary Sounds Podcast Episode 17</h3>
             <p>DJ Bongz</p>
+            <a href="https://hearthis.at/visionary-sounds-podcast/69fed8f01cdb9/" target="_blank" class="podcast-link">Listen →</a>
           </div>
-          <a href="https://hearthis.at/visionary-sounds-podcast/69fed8f01cdb9/" target="_blank" class="podcast-link">Listen →</a>
         </div>
         <div class="podcast-item">
           <img src="4.jpg" alt="Episode 16 cover" class="podcast-cover">
           <div class="podcast-details">
             <h3>Visionary Sounds Podcast Episode 16</h3>
             <p>Walkeria Matji</p>
+            <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-16-guest-mix-by-walkeria-matji/" target="_blank" class="podcast-link">Listen →</a>
           </div>
-          <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-16-guest-mix-by-walkeria-matji/" target="_blank" class="podcast-link">Listen →</a>
         </div>
         <div class="podcast-item">
           <img src="5.jpg" alt="Episode 15 cover" class="podcast-cover">
           <div class="podcast-details">
             <h3>Visionary Sounds Podcast Episode 15</h3>
             <p>Monkey Face</p>
+            <a href="https://hearthis.at/visionary-sounds-podcast/inbound7543605277566641395/" target="_blank" class="podcast-link">Listen →</a>
           </div>
-          <a href="https://hearthis.at/visionary-sounds-podcast/inbound7543605277566641395/" target="_blank" class="podcast-link">Listen →</a>
         </div>
         <div class="podcast-item">
           <img src="6.jpg" alt="Episode 14 cover" class="podcast-cover">
           <div class="podcast-details">
             <h3>Visionary Sounds Podcast Episode 14</h3>
             <p>Lord Deep</p>
+            <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-14-guest-mix-by-lord-deep/" target="_blank" class="podcast-link">Listen →</a>
           </div>
-          <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-14-guest-mix-by-lord-deep/" target="_blank" class="podcast-link">Listen →</a>
         </div>
         <div class="podcast-item">
-          <img src="7.jpg" alt="Episode 13 cover" class="podcast-cover">
+          <img src="7.png" alt="Episode 13 cover" class="podcast-cover">
           <div class="podcast-details">
             <h3>Visionary Sounds Podcast Episode 13</h3>
             <p>Rey Da Deep</p>
+            <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-13-guest-mix-by-rey-da-deep/" target="_blank" class="podcast-link">Listen →</a>
           </div>
-          <a href="https://hearthis.at/visionary-sounds-podcast/visionary-sounds-podcast-episode-13-guest-mix-by-rey-da-deep/" target="_blank" class="podcast-link">Listen →</a>
         </div>
       </div>
     </div>
@@ -653,8 +677,13 @@
       <div class="demo-contact-card">
         <h3><i class="fas fa-phone-alt"></i> Direct Contact</h3>
         <div class="contact-item">
-          <i class="fas fa-mobile-alt fa-lg"></i>
-          <div><strong>WhatsApp / Call</strong><br><a href="tel:+27655915185" style="text-decoration: none; color: #1e2f3e;">065 591 5185</a></div>
+          <i class="fab fa-whatsapp fa-lg"></i>
+          <div><strong>WhatsApp</strong><br><a href="https://wa.me/27655915185" target="_blank" style="text-decoration: none; color: #1e2f3e;">065 591 5185</a></div>
+          <button onclick="navigator.clipboard.writeText('0655915185'); alert('Number copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer; color: #2c7da0;"><i class="fas fa-copy"></i></button>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt fa-lg"></i>
+          <div><strong>Calls</strong><br><a href="tel:+27655915185" style="text-decoration: none; color: #1e2f3e;">065 591 5185</a></div>
           <button onclick="navigator.clipboard.writeText('0655915185'); alert('Number copied!')" style="margin-left: auto; background: none; border: none; cursor: pointer; color: #2c7da0;"><i class="fas fa-copy"></i></button>
         </div>
         <div class="contact-item">
@@ -669,6 +698,13 @@
 </main>
 
 <footer>
+  <div class="footer-links">
+    <a href="https://wa.me/27655915185" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="tel:+27655915185"><i class="fas fa-phone-alt"></i> Calls</a>
+    <a href="mailto:ngqibekom@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <a href="https://hearthis.at/visionary-sounds-podcast/" target="_blank"><i class="fas fa-podcast"></i> Hearthis.at</a>
+    <a href="https://www.facebook.com/OfficialVisionarySounds" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+  </div>
   <p>© 2026 Visionary Sounds</p>
   <p>Created By <a href="https://www.mwmtechnologies.co.za/" target="_blank">MWM Technologies</a></p>
 </footer>
